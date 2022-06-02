@@ -33,6 +33,8 @@ export class TransferenciaComponent implements OnInit {
     });
     Swal.showLoading();
 
+    console.log("TRANSFERENCIA "+JSON.stringify(this.transferencia))
+    
     this.cuentasServicio.crearTransaccion(this.transferencia,this.idToken).subscribe(resp => {
       Swal.close();
 

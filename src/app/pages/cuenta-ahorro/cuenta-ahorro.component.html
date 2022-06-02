@@ -9,10 +9,30 @@
                         Crear Nueva Cuenta Ahorro
                     </span>
 
+            <!-- Estado -->
+            <div class="m-b-16" data-validate="State is required">
+                <div class="input100 mt-4">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="estado" value="Activa" [(ngModel)]="cuenta.estado">
+                        <label class="form-check-label">Activa</label>
+                    </div>
+                    <div class="form-check form-check-inline ml-5">
+                        <input class="form-check-input" type="radio" name="estado" value="Inactiva" [(ngModel)]="cuenta.estado">
+                        <label class="form-check-label">Inactiva</label>
+                    </div>
+                </div>
+            </div>
 
-            <span *ngIf="f.submitted && f.controls['cuenta'].errors" class="text-danger animated fadeIn">El número de cuenta es obligatorio</span>
+            <!-- Fecha -->
+            <div class="wrap-input100 m-b-16" data-validate="Date is required">
+                <input class="input100" type="date" name="fecha" [(ngModel)]="cuenta.fechaUltimaAct">
+                <span class="focus-input100"></span>
+            </div>
+
+
+            <span *ngIf="f.submitted && f.controls['Ncuenta'].errors" class="text-danger animated fadeIn">El número de cuenta es obligatorio</span>
             <div class="wrap-input100 m-b-16">
-                <input class="input100" type="text" name="cuenta" required [(ngModel)]="cuenta.numeroCuenta" placeholder="Número Cuenta">
+                <input class="input100" type="text" name="Ncuenta" required [(ngModel)]="cuenta.numeroCuenta" placeholder="Número Cuenta">
                 <span class="focus-input100"></span>
             </div>
 

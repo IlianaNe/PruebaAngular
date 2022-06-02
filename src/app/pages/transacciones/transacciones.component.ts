@@ -18,7 +18,7 @@ export class TransaccionesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cuentasServicio.getCuentas(this.idToken).subscribe(resp => {
+    this.cuentasServicio.getTransacciones(this.idToken).subscribe(resp => {
       this.transacciones = Object.values(resp);
     });
   }

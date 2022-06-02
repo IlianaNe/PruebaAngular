@@ -7,21 +7,59 @@
                         Crear nueva cuenta
                     </span>
 
-
+                <!-- EMAIL -->
                 <span *ngIf="f.submitted && f.controls['email'].errors" class="text-danger animated fadeIn">El correo es obligatorio</span>
-
                 <div class="wrap-input100 m-b-16">
                     <input class="input100" type="email" name="email" required email [(ngModel)]="usuario.email" placeholder="Email">
 
                     <span class="focus-input100"></span>
                 </div>
 
-                <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
+                <!-- PASSWORD -->
                 <span *ngIf="f.submitted && f.controls['password'].errors" class="text-danger animated fadeIn">Mínimo 6 caracteres</span>
                 <div class="wrap-input100 m-b-16" data-validate="Password is required">
                     <input class="input100" type="password" name="password" [(ngModel)]="usuario.password" required minlength="6" placeholder="Password">
                     <span class="focus-input100"></span>
                 </div>
+
+                <!-- NOMBRE COMPLETO -->
+                <span *ngIf="f.submitted && f.controls['nombre'].errors" class="text-danger animated fadeIn">Mínimo 4 caracteres</span>
+                <div class="wrap-input100 m-b-16" data-validate="Name is required">
+                    <input class="input100" type="text" name="nombre" [(ngModel)]="usuario.nombre" required minlength="4" placeholder="Nombre Completo">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <!-- Dirección -->
+                <span *ngIf="f.submitted && f.controls['direccion'].errors" class="text-danger animated fadeIn">Mínimo 6 caracteres</span>
+                <div class="wrap-input100 m-b-16" data-validate="Direction is required">
+                    <input class="input100" type="text" name="direccion" [(ngModel)]="usuario.direccion" required minlength="6" placeholder="Direccion">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <!-- Edad -->
+                <span *ngIf="f.submitted && f.controls['edad'].errors || f.value.edad < 18 || f.value.edad > 99" class="text-danger animated fadeIn">Edad No Valida</span>
+                <div class="wrap-input100 m-b-16" data-validate="Edad is required">
+                    <input class="input100" type="number" name="edad" [(ngModel)]="usuario.edad" required maxlength="2" min="1" max="99" placeholder="Edad">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <!-- Genero -->
+                <span *ngIf="f.submitted && f.controls['genero'].errors" class="text-danger animated fadeIn">Elija su genero</span>
+                <div class="m-b-16" data-validate="Password is required">
+
+                    <div class="input100 mt-4">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="genero" value="M" required [ngModel]="usuario.genero">
+                            <label class="form-check-label">Masculino</label>
+                        </div>
+                        <div class="form-check form-check-inline ml-5">
+                            <input class="form-check-input" type="radio" name="genero" value="F" [ngModel]="usuario.genero">
+                            <label class="form-check-label">Femenino</label>
+                        </div>
+                    </div>
+                </div>
+
+
 
                 <div class="flex-sb-m w-full p-t-3 p-b-24">
                     <div class="contact100-form-checkbox">
