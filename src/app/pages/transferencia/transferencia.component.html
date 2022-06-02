@@ -1,0 +1,34 @@
+<app-home>
+</app-home>
+
+
+<div class="container">
+    <div class=" p-t-50 p-b-90">
+        <form (ngSubmit)="onSubmit(f)" class="login100-form validate-form flex-sb flex-w" #f="ngForm">
+
+            <span class="login100-form-title p-b-50">
+                      Nueva Transaccion
+                  </span>
+
+
+            <span *ngIf="f.submitted && f.controls['tipo'].errors" class="text-danger animated fadeIn">El tipo de transaccion es obligatoria</span>
+            <div class="wrap-input100 m-b-16">
+                <input class="input100" type="text" name="tipo" required [(ngModel)]="transferencia.tipo" placeholder="Tipo Transaccion">
+                <span class="focus-input100"></span>
+            </div>
+
+            <span *ngIf="f.submitted && f.controls['monto'].errors" class="text-danger animated fadeIn">El monto a dar es obligatorio</span>
+            <div class="wrap-input100 m-b-16">
+                <input class="input100" type="number" name="monto" [(ngModel)]="transferencia.monto" required minlength="1" placeholder="Monto">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="container-login10-form-btn m-auto">
+                <button class="login100-form-btn" type="submit">
+                          Realizar
+                      </button>
+            </div>
+
+        </form>
+    </div>
+</div>

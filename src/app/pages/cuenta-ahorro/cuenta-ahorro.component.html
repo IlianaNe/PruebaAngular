@@ -1,0 +1,42 @@
+<app-home>
+</app-home>
+
+<div class="container">
+    <div class=" p-t-50 p-b-90">
+        <form (ngSubmit)="onSubmit(f)" class="login100-form validate-form flex-sb flex-w" #f="ngForm">
+
+            <span class="login100-form-title p-b-50">
+                        Crear Nueva Cuenta Ahorro
+                    </span>
+
+
+            <span *ngIf="f.submitted && f.controls['cuenta'].errors" class="text-danger animated fadeIn">El número de cuenta es obligatorio</span>
+            <div class="wrap-input100 m-b-16">
+                <input class="input100" type="text" name="cuenta" required [(ngModel)]="cuenta.numeroCuenta" placeholder="Número Cuenta">
+                <span class="focus-input100"></span>
+            </div>
+
+            <span *ngIf="f.submitted && f.controls['saldo'].errors" class="text-danger animated fadeIn">Saldo actual es obligatorio</span>
+            <div class="wrap-input100 m-b-16">
+                <input class="input100" type="number" name="saldo" [(ngModel)]="cuenta.saldo" required minlength="1" placeholder="Saldo Actual">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="container-login10-form-btn m-t-8">
+                <button class="login100-form-btn" type="submit">
+                            Crear Cuenta Ahorro
+                        </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+<ul *ngFor="let cuenta of cuentas" class="list-group mb-5 mt-5">
+    <li class="list-group-item active">Número Cuenta: {{cuenta.numeroCuenta}}</li>
+    <li class="list-group-item">Fecha: {{cuenta.fechaUltimaAct | date}}</li>
+    <li class="list-group-item">Estado: {{cuenta.estado}}</li>
+    <li class="list-group-item">Saldo: {{cuenta.saldo}}</li>
+</ul>
