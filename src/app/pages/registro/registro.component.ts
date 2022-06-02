@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class RegistroComponent implements OnInit {
 
+  idGenerado = "";
   usuario = new UsuarioModel();
   recordarme = false;
   constructor(private auth: AuthService,
@@ -19,6 +20,13 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  getId() {  
+      let date = Date.now();
+      let rund = Math.ceil(Math.random()*1000)
+      let id = date + '' + rund;
+      this.idGenerado = id;
   }
 
   onSubmit(form: NgForm) {
@@ -30,6 +38,9 @@ export class RegistroComponent implements OnInit {
       text: 'Espera por Favor..'
     });
     Swal.showLoading();
+
+    //this.usuario.numeroId = this.idGenerado;
+    console.log(this.idGenerado +" = " + this.usuario.numeroId )
 
     this.auth.nuevoUsuario(this.usuario).subscribe(resp => {
       Swal.close();
@@ -49,6 +60,4 @@ export class RegistroComponent implements OnInit {
     //en el subscribe se tiene la respuesta al firebase
 
   }
-
-
 }

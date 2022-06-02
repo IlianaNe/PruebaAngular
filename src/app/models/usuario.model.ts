@@ -1,6 +1,11 @@
 export class UsuarioModel {
     email: string;
     password: string;
+    nombreCompleto: string;
+    numeroId: string;
+    direccion:string;
+    edad:number;
+    genero:string
 }
 
 export class CuentaModel {

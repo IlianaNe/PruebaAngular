@@ -14,9 +14,9 @@ const routes: Routes = [
   { path: 'home'    , component: HomeComponent, canActivate:[AuthGuard] },
   { path: 'registro', component: RegistroComponent },
   { path: 'login'   , component: LoginComponent },
-  { path: 'cuenta'   , component: CuentaAhorroComponent },
-  { path: 'historial'   , component: TransaccionesComponent },
-  { path: 'transferencia'   , component: TransferenciaComponent },
+  { path: 'cuenta'   , component: CuentaAhorroComponent , canActivate:[AuthGuard]},
+  { path: 'historial'   , component: TransaccionesComponent ,canActivate:[AuthGuard] },
+  { path: 'transferencia'   , component: TransferenciaComponent , canActivate:[AuthGuard]},
   { path: '**', pathMatch: 'full', redirectTo: 'registro'}
 ];
 
