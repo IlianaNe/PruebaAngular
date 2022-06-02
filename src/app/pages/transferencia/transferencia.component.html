@@ -10,18 +10,54 @@
                       Nueva Transaccion
                   </span>
 
-
-            <span *ngIf="f.submitted && f.controls['tipo'].errors" class="text-danger animated fadeIn">El tipo de transaccion es obligatoria</span>
-            <div class="wrap-input100 m-b-16">
-                <input class="input100" type="text" name="tipo" required [(ngModel)]="transferencia.tipo" placeholder="Tipo Transaccion">
+            <!-- Fecha -->
+            <div class="wrap-input100 m-b-16" data-validate="Date is required">
+                <input class="input100" type="date" name="fecha" [(ngModel)]="transferencia.fechaUltimaAct">
                 <span class="focus-input100"></span>
             </div>
 
+            <!-- Monto -->
             <span *ngIf="f.submitted && f.controls['monto'].errors" class="text-danger animated fadeIn">El monto a dar es obligatorio</span>
             <div class="wrap-input100 m-b-16">
                 <input class="input100" type="number" name="monto" [(ngModel)]="transferencia.monto" required minlength="1" placeholder="Monto">
                 <span class="focus-input100"></span>
             </div>
+
+            <!-- Numero Cuenta -->
+            <div class="wrap-input100 m-b-16" data-validate="Numero is required">
+                <input class="input100" type="text" name="nombre" [(ngModel)]="transferencia.numeroCuenta" minlength="4" placeholder="Número Cuenta">
+                <span class="focus-input100"></span>
+            </div>
+
+            <!-- Terminal -->
+            <div class="wrap-input100 m-b-16" data-validate="Terminal is required">
+                <input class="input100" type="text" name="terminal" [(ngModel)]="transferencia.terminal" minlength="4" placeholder="TERM235">
+                <span class="focus-input100"></span>
+            </div>
+
+            <!-- Tipo -->
+            <span *ngIf="f.submitted && f.controls['tipo'].errors" class="text-danger animated fadeIn">Elija su tipo de Transaccion</span>
+            <div class="m-b-16" data-validate="Type is required">
+
+                <div class="input100 mt-4">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tipo" value="Deposito" required [(ngModel)]="transferencia.tipo">
+                        <label class="form-check-label">Deposito</label>
+                    </div>
+                    <div class="form-check form-check-inline ml-5">
+                        <input class="form-check-input" type="radio" name="tipo" value="Retiro" [(ngModel)]="transferencia.tipo">
+                        <label class="form-check-label">Retiro</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usuario -->
+            <div class="wrap-input100 m-b-16" data-validate="User is required">
+                <input class="input100" type="text" name="usuario" [(ngModel)]="transferencia.usuario" minlength="4" placeholder="u-231">
+                <span class="focus-input100"></span>
+            </div>
+
+
 
             <div class="container-login10-form-btn m-auto">
                 <button class="login100-form-btn" type="submit">

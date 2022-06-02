@@ -25,6 +25,7 @@ export class CuentaService {
   getTransacciones(id: string) {
     return this.http.get(`${this.url}transacciones${this.url2}${id}`).pipe(map((data: any) => {
       const trans  = data
+      console.log()
       return trans;
     })
     );
@@ -38,10 +39,10 @@ export class CuentaService {
   }
 
 
-  crearTransaccion(trans: TransferenciaModel, id:string) {
-    return this.http.post(`${this.url}transacciones${this.url2}${id}`, trans)
+  crearTransaccion(transfe: TransferenciaModel, id:string) {
+    return this.http.post(`${this.url}transacciones${this.url2}${id}`, transfe)
       .pipe(map((resp: any) => {
-        console.log(resp)
+        console.log(transfe)
       }));
   }
 

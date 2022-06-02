@@ -40,7 +40,7 @@ export class CuentaAhorroComponent implements OnInit {
     Swal.showLoading();
 
     this.cuenta.idCliente = this.idClient;
-
+    console.log(this.cuenta);
     this.cuentasServicio.crearCuenta(this.cuenta,this.idToken).subscribe(resp => {
       Swal.close();
 

@@ -4,7 +4,8 @@
 
 <ul *ngFor="let trans of transacciones" class="list-group mb-5 mt-5">
     <li class="list-group-item active">Número Cuenta: {{trans.numeroCuenta}}</li>
-    <li class="list-group-item">Fecha: {{trans.fechaUltimaAct | date }}</li>
-    <li class="list-group-item">Estado: {{trans.estado}}</li>
-    <li class="list-group-item">Saldo: {{trans.saldo}}</li>
+    <li class="list-group-item">Fecha: {{trans.fechaUltimaAct}}</li>
+    <li class="list-group-item">Tipo: {{trans.tipo}}</li>
+    <li class="list-group-item">Monto: {{trans.monto}}</li>
+    <li class="list-group-item">Terminal: {{trans.terminal}}</li>
 </ul>
